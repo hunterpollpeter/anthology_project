@@ -1,0 +1,239 @@
+* {
+	border-radius: 0 !important;
+}
+
+html, body {
+	height: 100%;
+	font-family: 'Lato', 'arial' !important;
+}
+
+hr {
+	background-color: #cccccc;
+}
+.bg-primary {
+	background-color: #cb2026 !important;
+}
+.text-primary {
+	color: #cb2026 !important;
+}
+.btn-primary {
+	background-color: #cb2026 !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.bg-secondary {
+	background-color: #717073 !important;
+}
+.nav-link {
+	text-transform: uppercase;
+}
+.navbar-brand span {
+	font-weight: 600;
+	font-size: 1rem;
+	text-transform: uppercase;
+	line-height: 3;
+}
+.navbar-brand img {
+	height: 50px;
+	margin-right: 15px;
+}
+#hero {
+	height: 100%;
+	width: 100%;
+	background-image: url('AbstractSculpture.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	z-index: -1;
+}
+.navDisplacement {
+	height: 76px;
+	width: 100%;
+}
+#hero .navDisplacement {
+	position: absolute;
+	bottom: 0;
+	cursor: pointer;
+}
+#content {
+	background-color: white;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+	min-height: 100%;
+}
+.article p {
+	text-align: justify;
+}
+#slider {
+	height: 300px;
+	position: relative;
+  	overflow: hidden;
+  	border: 1px solid #cccccc;
+}
+#slider ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 300px;
+  overflow-y: hidden;
+  list-style: none;
+}
+
+#slider ul li {
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 300px;
+  background-size: cover !important;
+  background-position: center !important;
+}
+#slider ul li a {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 998;
+}
+#slider .control {
+	position: absolute;
+	height: 300px;
+	background-color: transparent;
+	opacity: .5;
+	line-height: 300px;
+	padding: 0 10px;
+	z-index: 999;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 32px;
+	transition: padding 0.5s, background-color 0.5s ease;
+}
+#slider .control:hover {
+	padding: 0 15px;
+	background-color: #000;
+}
+#slider .control-prev {
+	left: 0;
+}
+#slider .control-next {
+	right: 0;
+}
+#slider .screen {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #000;
+	opacity: .5;
+	z-index: 900;
+}
+#slider #status {
+	position: absolute;
+	top: 0;
+	z-index: 998;
+	height: 3px;
+	background-color: #cb2026;
+}
+#contents ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+#contents ul li small {
+	display: block;
+	color: #cb2026;
+}
+#contents ul li a {
+	display: block;
+	text-decoration: none;
+	color: #000;
+	padding-right: 10px;
+	margin-bottom: 15px;
+	border-left: 3px solid transparent;
+	transition: padding 0.35s, border 0.35s ease;
+} 
+#contents ul li a:hover {
+	border-left-color: #cb2026;
+	padding-left: 10px;
+	padding-right: 0;
+}
+.card {
+	border-color: #cccccc;
+}
+.card small {
+	color: #cb2026;
+}
+.footer {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #cccccc;
+    margin-top: 30px;
+}
+@media (max-width: 575px) {
+	.navbar-brand span {
+		display: none !important;
+	}
+}
+
+/* START ARROW */
+.arrow {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin-left:-20px;
+	z-index: 0;
+}
+
+.bounce {
+	-webkit-animation-name: bounce;
+	-moz-animation-name: bounce;
+	-o-animation-name: bounce;
+	animation-name: bounce;
+}
+.animated {
+	-webkit-animation-fill-mode:both;
+	-moz-animation-fill-mode:both;
+	-ms-animation-fill-mode:both;
+	-o-animation-fill-mode:both;
+
+	animation-iteration-count: infinite;
+	-moz-animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+
+	animation-fill-mode:both;
+	-webkit-animation-duration:2s;
+	-moz-animation-duration:2s;
+	-ms-animation-duration:2s;
+	-o-animation-duration:2s;
+	animation-duration:2s;
+}
+
+
+@-webkit-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);} 40% {-webkit-transform: translateY(-30px);}
+	60% {-webkit-transform: translateY(-15px);}
+}
+
+@-moz-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-moz-transform: translateY(0);}
+	40% {-moz-transform: translateY(-30px);}
+	60% {-moz-transform: translateY(-15px);}
+}
+
+@-o-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-o-transform: translateY(0);}
+	40% {-o-transform: translateY(-30px);}
+	60% {-o-transform: translateY(-15px);}
+}
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-30px);}
+	60% {transform: translateY(-15px);}
+}
+/* END ARROW */
