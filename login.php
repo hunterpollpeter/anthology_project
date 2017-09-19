@@ -7,9 +7,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
+	<!-- INCLUDE NAV -->
 	<?php
 		include '_includes/nav.php';
 	?>
+	<!-- PAGE CONTENT -->
 	<div class="navDisplacement"></div>
 	<div class="container pt-4">
 		<div class="row">
@@ -25,11 +27,22 @@
 						<label for="exampleInputPassword1">Password</label>
 						<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 					</div>
-					<button type="submit" class="btn btn-primary mr-3">Login</button>
-					<a href="register" class="btn btn-primary">Register</a>
+					<div class="form-group">
+						<div class="form-check">
+							<label class="form-check-label">
+								<input class="form-check-input" type="checkbox"> Remember me
+							</label>
+						</div>
+					</div>
+					<input type="submit" class="btn btn-lg btn-primary mr-3" value="Login" style="cursor: pointer;"></input>
+					<a href="register" class="btn btn-lg btn-primary">Register</a>
 				</form>
 			</div>
 		</div>
 	</div>
+	<!-- INCLUDE SCRIPTS -->
+	<?php 
+		include '_includes/scripts.html';
+	?>
 </body>
 </html>

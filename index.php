@@ -42,9 +42,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
+	<!-- INCLUDE NAV -->
 	<?php
 		include '_includes/nav.php';
 	?>
+	<!-- PAGE CONTENT -->
 	<div id="hero">
 		<div class="arrow animated bounce">
 			<img width="40" height="40" alt="" src="assets/DownArrow.svg" />
@@ -176,9 +178,9 @@
 			</div>
 		</footer>
 	</div>
-	<script src="../../assets/jquery-3.2.1.min.js" type="text/javascript"></script>
-	<script src="../../assets/popper.js" type="text/javascript"></script>
-	<script src="../../assets/bootstrap.js" type="text/javascript"></script>
-	<script src="assets/script.js" type="text/javascript"></script>
+	<!-- INCLUDE SCRIPTS -->
+	<?php 
+		include '_includes/scripts.html';
+	?>
 </body>
 </html>
