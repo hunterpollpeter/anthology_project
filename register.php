@@ -50,7 +50,7 @@
 							</label>
 						</div>
 					</div>
-					<button type="submit" class="btn btn-lg btn-primary">Register</button>
+					<input type="submit" class="btn btn-lg btn-primary" value="Register" style="cursor: pointer;"></button>
 				</form>
 			</div>
 		</div>

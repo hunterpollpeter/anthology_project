@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary navbar-fixed fixed-top">
 	<div class="container">
-		<a class="navbar-brand" href="index">
+		<a class="navbar-brand" href="/hw/ap">
 			<img src="assets/CentralCollegeLogoWhite.svg">
 			<span>The Writing Anthology 2017</span>
 		</a>
@@ -17,9 +17,11 @@
 						Archives
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">2017</a>
 						<a class="dropdown-item" href="#">2016</a>
 						<a class="dropdown-item" href="#">2015</a>
 						<a class="dropdown-item" href="#">2014</a>
+						<a class="dropdown-item" href="#">Older issues</a>
 					</div>
 				</li>
 			</ul>
