@@ -58,21 +58,10 @@
 			<div class="row">
 				<div class="col-md-8 order-2 order-sm-1">
 					<div class="row mb-4">
-						<div class="col-md-12 px-sm-3 px-0">
+						<div class="col-md-12">
 							<h3>Featured</h3>
 							<hr>
-							<div id="slider">
-								<div id="status"></div>
-								<a href="#" class="control control-prev">&lsaquo;</a>
-								<a href="#" class="control control-next">&rsaquo;</a>
-								<ul>
-									<?php
-										foreach ($images as $image) {
-											echo "<li style=\"background-image: url('$directory/$image');\"></li>";
-										}
-									?>
-								</ul>
-							</div>
+							<?php include '_includes/slider.php' ?>
 						</div>
 					</div>
 					<div class="row mb-4">

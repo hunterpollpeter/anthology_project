@@ -18,7 +18,7 @@
 			<div class="col-md-12">
 				<h3>Login</h3>
 				<hr>
-				<form>
+				<form method >
 					<div class="form-group">
 						<label for="exampleInputEmail1">Email address</label>
 						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
