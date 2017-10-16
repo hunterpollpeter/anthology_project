@@ -3,37 +3,91 @@
 	{
 		public $id;
 		public $title;
-		public $author;
-		function __construct($title, $author) {
+		public $authors;
+		function __construct($title, $authors) {
 			$this->title = $title;
-			$this->author = $author;
+			$this->authors = $authors;
 		}
 	}
 	// replace with query
 	$contentID = $_GET["id"];
 	$contents = array(
-		 0 => new article("Representation of the Holocaust through the Memorial to the Murdered Jews of Europe", "Gretchen Kistenmacher"),
-		 1 => new article("Ibuprofen Synthesis", "Mckenna Kilburg &amp; Rachel Tyler"),
-		 2 => new article("Madness in (Stage)craft", "K.E. Daft"),
-		 3 => new article("Nutrition and Neurology", "Andrea Artorfer"),
-		 4 => new article("An Identity in the Seams", "Kayleigh Rohr"),
-		 5 => new article("Legal and Cultural Contexts of Gay Rights in India", "Duncan Brumwell"),
-		 6 => new article("The Judgement of \"Penelope\": A Day in the Life of Molly Bloom", "Lindsey Greer"),
-		 7 => new article("A Measured Response: Staging the Ambiguity in Measure for Measure", "Hannah Marcum"),
-		 8 => new article("And Here Our Troubles Began: An American Reaction to 9/11 in Comix", "Sydney Embray"),
-		 9 => new article("Searching for the Beggining", "Josie Youel"),
-		10 => new article("Rebirth", "Zach Moss")
+		 0 => new article(
+		 	"Representation of the Holocaust through the Memorial to the Murdered Jews of Europe", 
+		 	array(
+		 		"Gretchen Kistenmacher"
+		 	)
+		 ),
+		 1 => new article(
+		 	"Ibuprofen Synthesis", 
+		 	array(
+		 		"Mckenna Kilburg", 
+		 		"Rachel Tyler"
+		 	)
+		 ),
+		 2 => new article(
+		 	"Madness in (Stage)craft", 
+		 	array(
+		 		"K.E. Daft"
+		 	)
+		 ),
+		 3 => new article(
+		 	"Nutrition and Neurology", 
+		 	array(
+		 		"Andrea Artorfer"
+		 	)
+		 ),
+		 4 => new article(
+		 	"An Identity in the Seams", 
+		 	array(
+		 		"Kayleigh Rohr"
+		 	)
+		 ),
+		 5 => new article(
+		 	"Legal and Cultural Contexts of Gay Rights in India", 
+		 	array(
+		 		"Duncan Brumwell"
+		 	)
+		 ),
+		 6 => new article(
+		 	"The Judgement of \"Penelope\": A Day in the Life of Molly Bloom", 
+		 	array(
+		 		"Lindsey Greer"
+		 	)
+		 ),
+		 7 => new article(
+		 	"A Measured Response: Staging the Ambiguity in Measure for Measure", 
+		 	array(
+		 		"Hannah Marcum"
+		 	)
+		 ),
+		 8 => new article(
+		 	"And Here Our Troubles Began: An American Reaction to 9/11 in Comix", 
+		 	array(
+		 		"Sydney Embray"
+		 	)
+		 ),
+		 9 => new article(
+		 	"Searching for the Beggining", 
+		 	array(
+		 		"Josie Youel"
+		 	)
+		 ),
+		10 => new article(
+			"Rebirth", 
+			array(
+				"Zach Moss"
+			)
+		)
 	);
 	$title = $contents[$contentID]->title; 
-	$author = $contents[$contentID]->author; 
+	$authors = $contents[$contentID]->authors; 
 ?>
 <html>
 <head>
-	<title>The Writing Anthology - <?php echo $title; ?></title>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Rokkitt">
-	<link rel="stylesheet" href="../../assets/bootstrap.css">
-	<link rel="stylesheet" href="assets/style.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php
+	include '_includes/head.php'
+?>
 </head>
 <body>
 	<!-- INCLUDE NAV -->
@@ -41,7 +95,6 @@
 		include '_includes/nav.php';
 	?>	
 	<!-- PAGE CONTENT -->
-	<div class="navDisplacement"></div>
 	<div class="container pt-4">
 		<div class="row">
 			<div class="col-md-9 article mb-4">
@@ -78,30 +131,19 @@
 					Sed at sit hendrerit sit proin risus. Dui quam nulla orci eu ornare urna, ut platea tempor, ligula sed lectus ligula justo, cursus leo pellentesque aptent rhoncus primis metus. Lacus maecenas vestibulum suspendisse, tincidunt sollicitudin, a mauris ut suspendisse libero fusce, et ultrices sed eros sed convallis, pede massa fusce. Laoreet curabitur. Faucibus velit eget, maecenas dui fusce praesent elementum, turpis nisl.
 				</p>
 			</div>
-			<div class="col-md-3 article">
-				<img width="100%" height="auto" src="assets/nopicture.png" class="mb-3">
-				<h4><?php echo $author; ?></h4>
-				<hr>
-				<p>
-					Major: Some Major
-					<br>
-					Class: 2018
-					<br>
-					<br>
-					Sed at sit hendrerit sit proin risus. Dui quam nulla orci eu ornare urna, ut platea tempor, ligula sed lectus ligula justo, cursus leo pellentesque aptent rhoncus primis metus. Lacus maecenas vestibulum suspendisse, tincidunt sollicitudin, a mauris ut suspendisse libero fusce, et ultrices sed eros sed convallis, pede massa fusce. Laoreet curabitur. Faucibus velit eget, maecenas dui fusce praesent elementum, turpis nisl.
-					<br>
-					<br>
-					Diam semper fringilla nullam nulla, posuere in tincidunt nec et ullamcorper, in nibh curabitur erat leo ut. Eget mauris imperdiet fusce donec massa cursus, vel nullam, elit eget. Nec eget id fusce commodo velit nec. Cras mauris leo fringilla orci expedita, fringilla iaculis tempus risus, ante tempus viverra consequat in est, velit pellentesque dui imperdiet nisl incididunt urna, hymenaeos non pretium suscipit. Eu orci, elementum massa non nam, metus faucibus ac elementum magnis lacinia, nunc netus eu duis eu, metus nascetur magnis. Quis feugiat, ut aliquet sit tellus sapien curabitur et, id blandit volutpat vestibulum lorem risus. Lacinia mi nam luctus porttitor dictum ut, lectus augue quis elit recusandae non gravida, erat enim. Fusce massa consectetuer in pede pede, sem orci dolor, porttitor eleifend dapibus fusce lacinia donec. Neque pulvinar tellus neque fusce massa, dolor felis.
-				</p>
+			<div class="col-md-3">
+				<?php 
+					for($i = 0; $i < count($authors); $i++) {
+						$author = $authors[$i];
+						include '_includes/article_author.php';
+					}
+				?>
 			</div>
 		</div>
 	</div>
-
-	<footer class="footer">
-		<div class="container">
-			<span class="text-muted">&copy; 2017 Hunter &amp; Justin</span>
-		</div>
-	</footer>
+	<?php 
+		include '_includes/footer.php';
+	?>
 	<!-- INCLUDE SCRIPTS -->
 	<?php 
 		include '_includes/scripts.html';

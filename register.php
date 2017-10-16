@@ -1,10 +1,9 @@
 <html>
 <head>
-	<title>The Writing Anthology - Register</title>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Rokkitt">
-	<link rel="stylesheet" href="../../assets/bootstrap.css">
-	<link rel="stylesheet" href="assets/style.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php
+	$title = "Register";
+	include '_includes/head.php'
+?>
 </head>
 <body>
 	<!-- INCLUDE NAV -->
@@ -12,7 +11,6 @@
 		include '_includes/nav.php';
 	?>
 	<!-- PAGE CONTENT -->
-	<div class="navDisplacement"></div>
 	<div class="container pt-4">
 		<div class="row">
 			<div class="col-md-12">
@@ -55,6 +53,9 @@
 			</div>
 		</div>
 	</div>
+	<?php 
+		include '_includes/footer.php';
+	?>
 	<!-- INCLUDE SCRIPTS -->
 	<?php 
 		include '_includes/scripts.html';
