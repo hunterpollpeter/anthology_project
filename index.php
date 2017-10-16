@@ -160,7 +160,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div id="note" class="col-md-12 article mb-4" style="padding-top: 100px; margin-top: -100px;">
+					<div id="note" class="col-md-12 article mb-4" style="padding-top: 100px; margin-top: -100px; z-index: -1;">
 						<h3>A Note from the Editors</h3>
 						<hr>
 						<p>
