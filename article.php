@@ -1,87 +1,9 @@
 <?php
-	class article
-	{
-		public $id;
-		public $title;
-		public $authors;
-		function __construct($title, $authors) {
-			$this->title = $title;
-			$this->authors = $authors;
-		}
+	require_once './data/data_layer.php';
+	$article = getArticle($_GET['id']);
+	if ($article == null) {
+		echo "error";
 	}
-	// replace with query
-	$contentID = $_GET["id"];
-	$contents = array(
-		 0 => new article(
-		 	"Representation of the Holocaust through the Memorial to the Murdered Jews of Europe", 
-		 	array(
-		 		"Gretchen Kistenmacher"
-		 	)
-		 ),
-		 1 => new article(
-		 	"Ibuprofen Synthesis", 
-		 	array(
-		 		"Mckenna Kilburg", 
-		 		"Rachel Tyler"
-		 	)
-		 ),
-		 2 => new article(
-		 	"Madness in (Stage)craft", 
-		 	array(
-		 		"K.E. Daft"
-		 	)
-		 ),
-		 3 => new article(
-		 	"Nutrition and Neurology", 
-		 	array(
-		 		"Andrea Artorfer"
-		 	)
-		 ),
-		 4 => new article(
-		 	"An Identity in the Seams", 
-		 	array(
-		 		"Kayleigh Rohr"
-		 	)
-		 ),
-		 5 => new article(
-		 	"Legal and Cultural Contexts of Gay Rights in India", 
-		 	array(
-		 		"Duncan Brumwell"
-		 	)
-		 ),
-		 6 => new article(
-		 	"The Judgement of \"Penelope\": A Day in the Life of Molly Bloom", 
-		 	array(
-		 		"Lindsey Greer"
-		 	)
-		 ),
-		 7 => new article(
-		 	"A Measured Response: Staging the Ambiguity in Measure for Measure", 
-		 	array(
-		 		"Hannah Marcum"
-		 	)
-		 ),
-		 8 => new article(
-		 	"And Here Our Troubles Began: An American Reaction to 9/11 in Comix", 
-		 	array(
-		 		"Sydney Embray"
-		 	)
-		 ),
-		 9 => new article(
-		 	"Searching for the Beggining", 
-		 	array(
-		 		"Josie Youel"
-		 	)
-		 ),
-		10 => new article(
-			"Rebirth", 
-			array(
-				"Zach Moss"
-			)
-		)
-	);
-	$title = $contents[$contentID]->title; 
-	$authors = $contents[$contentID]->authors; 
 ?>
 <html>
 <head>
@@ -95,10 +17,12 @@
 		include '_includes/nav.php';
 	?>	
 	<!-- PAGE CONTENT -->
+	<div class="jumbotron-fluid article-image" style="background-image: url(<?php echo './assets/article_images/' . $article->imageFile; ?>);">
+	</div>
 	<div class="container pt-4">
 		<div class="row">
 			<div class="col-md-9 article mb-4">
-				<h3><?php echo $title; ?></h3>
+				<h3><?php echo $article->title; ?></h3>
 				<hr>
 				<p>
 					Lorem ipsum dolor sit amet, odio dicta mauris in commodo, tellus ut leo est, hac viverra ac amet ridiculus, a sed egestas donec vitae fusce, risus pede id ut non. Odio phasellus ac est, facilisis nec labore praesent, vitae semper urna, id venenatis ipsum leo felis nam orci. Curabitur egestas suscipit enim mauris morbi, consectetuer et justo lorem, at nulla sed bibendum in vitae. Mollis elit, quis mauris. Cras rerum mattis ligula mus, vestibulum dolor lectus, aliquam lorem enim, duis ut nibh enim cursus. Nam habitasse, natus vel nisl quis vel quam.
@@ -133,8 +57,8 @@
 			</div>
 			<div class="col-md-3">
 				<?php 
-					for($i = 0; $i < count($authors); $i++) {
-						$author = $authors[$i];
+					for($i = 0; $i < count($article->authors); $i++) {
+						$author = $article->authors[$i];
 						include '_includes/article_author.php';
 					}
 				?>

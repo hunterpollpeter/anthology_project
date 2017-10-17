@@ -1,92 +1,9 @@
 <?php 
-	$directory = "assets";
-	$images = array(
-		"studentart1.jpg",
-		"studentart2.jpg",
-		"studentart3.jpg",
-		"studentart4.jpg",
-		"studentart5.jpg",
-	);
-	class article
-	{
-		public $id;
-		public $title;
-		public $authors;
-		function __construct($title, $authors) {
-			$this->title = $title;
-			$this->authors = $authors;
-		}
-	}
-	// replace with query
-	$contents = array(
-		 0 => new article(
-		 	"Representation of the Holocaust through the Memorial to the Murdered Jews of Europe", 
-		 	array(
-		 		"Gretchen Kistenmacher"
-		 	)
-		 ),
-		 1 => new article(
-		 	"Ibuprofen Synthesis", 
-		 	array(
-		 		"Mckenna Kilburg", 
-		 		"Rachel Tyler"
-		 	)
-		 ),
-		 2 => new article(
-		 	"Madness in (Stage)craft", 
-		 	array(
-		 		"K.E. Daft"
-		 	)
-		 ),
-		 3 => new article(
-		 	"Nutrition and Neurology", 
-		 	array(
-		 		"Andrea Artorfer"
-		 	)
-		 ),
-		 4 => new article(
-		 	"An Identity in the Seams", 
-		 	array(
-		 		"Kayleigh Rohr"
-		 	)
-		 ),
-		 5 => new article(
-		 	"Legal and Cultural Contexts of Gay Rights in India", 
-		 	array(
-		 		"Duncan Brumwell"
-		 	)
-		 ),
-		 6 => new article(
-		 	"The Judgement of \"Penelope\": A Day in the Life of Molly Bloom", 
-		 	array(
-		 		"Lindsey Greer"
-		 	)
-		 ),
-		 7 => new article(
-		 	"A Measured Response: Staging the Ambiguity in Measure for Measure", 
-		 	array(
-		 		"Hannah Marcum"
-		 	)
-		 ),
-		 8 => new article(
-		 	"And Here Our Troubles Began: An American Reaction to 9/11 in Comix", 
-		 	array(
-		 		"Sydney Embray"
-		 	)
-		 ),
-		 9 => new article(
-		 	"Searching for the Beggining", 
-		 	array(
-		 		"Josie Youel"
-		 	)
-		 ),
-		10 => new article(
-			"Rebirth", 
-			array(
-				"Zach Moss"
-			)
-		)
-	);
+	require_once './data/data_layer.php';
+	$issueYear = null;
+	if (isset($_GET['issue'])) $issueYear = $_GET['issue'];
+	$issue = getIssue($issueYear);
+	$contents = getContents($issue->year);
 ?>
 <!DOCTYPE html>
 <html>
