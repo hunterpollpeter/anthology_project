@@ -77,7 +77,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div id="note" class="col-md-12 article mb-4" style="padding-top: 100px; margin-top: -100px; z-index: -1;">
+					<div id="note" class="col-md-12 article mb-4" style="padding-top: 98px; margin-top: -98px; z-index: -1;">
 						<h3>A Note from the Editors</h3>
 						<hr>
 						<p>
@@ -104,7 +104,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="contents" class="col-md-4 order-1 order-sm-2 mb-4" style="padding-top: 100px; margin-top: -100px;">
+			<div id="contents" class="col-md-4 order-1 order-sm-2 mb-4" style="padding-top: 98px; margin-top: -98px;">
 				<h3>Contents</h3>
 				<hr>
 				<ul>

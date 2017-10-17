@@ -64,11 +64,13 @@
 		return new issue($year, $imageFile);
 	}
 
-	function getIssues()
+	function getArchivedIssues()
 	{
 		$query = "
 			SELECT issueYear
-		 	  FROM issues;
+		 	  FROM issues
+		 	 WHERE currentIndicator = 0
+		 	 ORDER BY issueYear DESC;
 		";
 		$data = query($query);
 		$issues = array();
@@ -125,7 +127,8 @@
 		$data = query($query);
 		$contents = array();
 		$count = count($data);
-		for ($i = 0; $i < $count; $i) 
+		$i = 0;
+		while ($i < $count) 
 		{
 			$assoc = $data[$i];
 			$id = $assoc['articleID'];

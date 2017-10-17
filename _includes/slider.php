@@ -7,31 +7,31 @@
 		<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
 	</ol>
 	<div class="carousel-inner">
-		<div class="carousel-item active" style="background-image: url('assets/studentart1.jpg')">
+		<div class="carousel-item active" style="background-image: url('./assets/carousel_images/studentart1.jpg')">
 			<div class="carousel-caption d-none d-md-block">
 				<h3></h3>
 				<p></p>
 			</div>
 		</div>
-		<div class="carousel-item" style="background-image: url('assets/studentart2.jpg')">
+		<div class="carousel-item" style="background-image: url('./assets/carousel_images/studentart2.jpg')">
 			<div class="carousel-caption d-none d-md-block">
 				<h3></h3>
 				<p></p>
 			</div>
 		</div>
-		<div class="carousel-item" style="background-image: url('assets/studentart3.jpg')">
+		<div class="carousel-item" style="background-image: url('./assets/carousel_images/studentart3.jpg')">
 			<div class="carousel-caption d-none d-md-block">
 				<h3></h3>
 				<p></p>
 			</div>
 		</div>
-		<div class="carousel-item" style="background-image: url('assets/studentart4.jpg')">
+		<div class="carousel-item" style="background-image: url('./assets/carousel_images/studentart4.jpg')">
 			<div class="carousel-caption d-none d-md-block">
 				<h3></h3>
 				<p></p>
 			</div>
 		</div>
-		<div class="carousel-item" style="background-image: url('assets/studentart5.jpg')">
+		<div class="carousel-item" style="background-image: url('./assets/carousel_images/studentart5.jpg')">
 			<div class="carousel-caption d-none d-md-block">
 				<h3></h3>
 				<p></p>
