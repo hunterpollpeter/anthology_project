@@ -1,6 +1,6 @@
 <?php
 	require_once './data/data_layer.php';
-	$archivedIssues = getArchivedIssues();
+	$archivedIssues = data::getArchivedIssues();
 ?>
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary navbar-fixed fixed-top">
 	<div class="container">

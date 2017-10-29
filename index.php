@@ -2,8 +2,15 @@
 	require_once './data/data_layer.php';
 	$issueYear = null;
 	if (isset($_GET['issue'])) $issueYear = $_GET['issue'];
-	$issue = getIssue($issueYear);
-	$contents = getContents($issue->year);
+	$issue = data::getIssue($issueYear);
+	$contents = data::getContents($issue->year);
+	$rand_keys = array_rand($contents, 4);
+	$featured = array(
+		$contents[$rand_keys[0]], 
+		$contents[$rand_keys[1]], 
+		$contents[$rand_keys[2]], 
+		$contents[$rand_keys[3]]
+	);
 ?>
 <!DOCTYPE html>
 <html>
@@ -116,16 +123,7 @@
 					<?php
 						foreach ($contents as $id => $content) {
 							$authors = $content->authors;
-							$authorString = "";
-							for ($i = 0; $i < count($authors); $i++) {
-								$authorString .= $authors[$i];
-								if ($i == count($authors) - 2) {
-									$authorString .= " &amp; ";
-								}
-								elseif ($i < count($authors) - 1) {
-									$authorString .= ", ";
-								}
-							}
+							$authorString = $content->getAuthorString();
 							echo "<li>
 									<a href=\"article?id=$id\">
 										$content->title
