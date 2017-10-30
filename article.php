@@ -20,7 +20,7 @@
 		include '_includes/nav.php';
 	?>	
 	<!-- PAGE CONTENT -->
-	<div class="jumbotron-fluid article-image" style="background-image: url(<?php echo './assets/article_images/' . $article->imageFile; ?>);">
+	<div class="jumbotron-fluid article-image" style="background-image: url(<?php echo './' . $issue->year . '/article_images/' . $article->imageFile; ?>);">
 	</div>
 	<div id="article" style="padding-top: 74px; margin-top: -74px;"></div>
 	<div class="container pt-5">

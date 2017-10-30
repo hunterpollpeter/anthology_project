@@ -61,7 +61,8 @@
 		{
 			// if (is_array($query)) return multiQuery($query);
 
-			$conn = new mysqli($this->hostname, $this->username , $this->password, $this->database);
+			$conn = new mysqli($this->hostname, 
+				$this->username , $this->password, $this->database);
 			$result = $conn->query($query);
 			if(!$result) die ($conn->error);
 			$data = array();
