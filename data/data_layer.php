@@ -5,12 +5,20 @@
 		public $title;
 		public $imageFile;
 		public $authors;
+		public $start;
+		public $end;
+		public $issueFile;
+		public $year;
 
-		function __construct($title, $imageFile, $authors) 
+		function __construct($title, $imageFile, $authors, $start, $end, $issueFile, $year) 
 		{
 			$this->title = $title;
 			$this->imageFile = $imageFile;
 			$this->authors = $authors;
+			$this->start = $start;
+			$this->end = $end;
+			$this->issueFile = $issueFile;
+			$this->year = $year;
 		}
 
 		function getAuthorString()
@@ -34,11 +42,17 @@
 	{
 		public $year;
 		public $imageFile;
+		public $issueFile;
+		public $noteStart;
+		public $noteEnd;
 
-		function __construct($year, $imageFile) 
+		function __construct($year, $imageFile, $issueFile, $noteStart, $noteEnd) 
 		{
 			$this->year = $year;
 			$this->imageFile = $imageFile;
+			$this->issueFile = $issueFile;
+			$this->noteStart = $noteStart;
+			$this->noteEnd = $noteEnd;
 		}
 	}
 
@@ -62,6 +76,7 @@
 			// if (is_array($query)) return multiQuery($query);
 
 			$conn = new mysqli($this->hostname, $this->username , $this->password, $this->database);
+			$conn->query('SET NAMES utf8');
 			$result = $conn->query($query);
 			if(!$result) die ($conn->error);
 			$data = array();
@@ -100,7 +115,10 @@
 		{
 			$query = "
 				SELECT issueYear,
-				       imageFile
+				       imageFile,
+				       issueFile,
+				       noteStart,
+					   noteEnd
 			 	  FROM issues
 			 	 WHERE 
 			";
@@ -116,7 +134,10 @@
 			$assoc = $data[0];
 			$year = $assoc['issueYear'];
 			$imageFile = $assoc['imageFile'];
-			return new issue($year, $imageFile);
+			$issueFile = $assoc['issueFile'];
+			$noteStart = $assoc['noteStart'];
+			$noteEnd = $assoc['noteEnd'];
+			return new issue($year, $imageFile, $issueFile, $noteStart, $noteEnd);
 		}
 
 		public static function getArchivedIssues()
@@ -140,29 +161,39 @@
 		{
 			if (!is_numeric($id)) return;
 			$query = "
-				SELECT title, 
-				       imageFile,
-				       firstName,
-				       lastName
+				SELECT title,
+				       start,
+				       end,
+					   articles.imageFile,
+					   firstName,
+					   lastName,
+				       articles.issueYear,
+				       issueFile
 				  FROM articles,
-				       authorarticle,
-				       authors
+					   authorarticle,
+					   authors,
+				       issues
 				 WHERE articles.articleID = $id
 				   AND authorarticle.articleID = articles.articleID
-				   AND authors.authorID = authorarticle.authorID;
+				   AND authors.authorID = authorarticle.authorID
+				   AND issues.issueYear = articles.issueYear;
 			";
 			$data = self::$sql->query($query);
 			if (count($data) == 0) return null;
 			$assoc = $data[0];
 			$title = $assoc['title'];
 			$imageFile = $assoc['imageFile'];
+			$start = $assoc['start'];
+			$end = $assoc['end'];
+			$issueFile = $assoc['issueFile'];
+			$year = $assoc['issueYear'];
 			$authors = array($assoc['firstName'] . ' ' . $assoc['lastName']);
 			for ($i = 1; $i < count($data); $i++) 
 			{
 				$assoc = $data[$i];
 				$authors[$i] = $assoc['firstName'] . ' ' . $assoc['lastName'];
 			}
-			return new article($title, $imageFile, $authors);
+			return new article($title, $imageFile, $authors, $start, $end, $issueFile, $year);
 		}
 
 		public static function getContents($year) 
@@ -200,7 +231,7 @@
 					$nextID = $assoc['articleID'];
 				}
 				while ($nextID == $id);
-				$contents[$id] = new article($title, $imageFile, $authors);
+				$contents[$id] = new article($title, $imageFile, $authors, null, null, null, $year);
 				$contents[$id]->id = $id;
 			}
 			return $contents;

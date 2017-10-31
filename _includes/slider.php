@@ -10,10 +10,11 @@
 			for ($i = 0; $i < count($featured); $i++)
 			{
 				$feature = $featured[$i];
-				$id = $feature->id;
-				$title = $feature->title;
-				$authors = $feature->getAuthorString();
-				$imageFile = $feature->imageFile;
+				// $id = $feature->id;
+				// $title = $feature->title;
+				// $authors = $feature->getAuthorString();
+				// $imageFile = $feature->imageFile;
+				// $year = $feature->
 				include '_includes/feature_slide.php';
 			}
 		?> 

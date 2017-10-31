@@ -6,6 +6,7 @@
 		include '_includes/not_found.php';
 		return;
 	}
+	$issueYear = $article->year;
 ?>
 <html>
 <head>
@@ -20,7 +21,7 @@
 		include '_includes/nav.php';
 	?>	
 	<!-- PAGE CONTENT -->
-	<div class="jumbotron-fluid article-image" style="background-image: url(<?php echo './assets/article_images/' . $article->imageFile; ?>);">
+	<div class="jumbotron-fluid article-image" style="background-image: url('<?php echo "./$article->year/$article->imageFile"; ?>');">
 	</div>
 	<div id="article" style="padding-top: 74px; margin-top: -74px;"></div>
 	<div class="container pt-5">
@@ -29,7 +30,7 @@
 				<h3><?php echo $article->title; ?></h3>
 				<hr>
 				<canvas class="page" id="the-canvas" style="width: 100%; height: auto;"></canvas>
-				<div class="mt-3 text-center">
+				<div id="paginator" class="mt-3 text-center">
 					<a href="#article" class="btn btn-primary float-left" id="prev">Previous</a>
 					<span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
 					<a href="#article" class="btn btn-primary float-right" id="next">Next</a>
@@ -55,7 +56,7 @@
 	<script src="./assets/scripts/pdf.js" type="text/javascript"></script>
 	<script src="./assets/scripts/pdf.pagination.js" type="text/javascript"></script>
 	<script>
-		getArticle('./2017/2017 Writing Anthology.pdf', 4, 10);
+		getArticle('<?php echo "./$article->year/$article->issueFile"; ?>', <?php echo $article->start ?>, <?php echo $article->end ?>);
 	</script>
 </body>
 </html>

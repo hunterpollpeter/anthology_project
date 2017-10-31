@@ -68,6 +68,10 @@ function onPrevPage() {
   if (pageNum <= start) {
     return;
   }
+  if (pageNum <= (start + 1)) {
+    document.getElementById('prev').classList.add('disabled');
+  }
+  document.getElementById('next').classList.remove('disabled');
   pageNum--;
   queueRenderPage(pageNum);
 }
@@ -80,6 +84,10 @@ function onNextPage() {
   if (pageNum >= end) {
     return;
   }
+  if (pageNum >= (end - 1)) {
+    document.getElementById('next').classList.add('disabled');
+  }
+  document.getElementById('prev').classList.remove('disabled');
   pageNum++;
   queueRenderPage(pageNum);
 }
@@ -96,7 +104,11 @@ function getArticle(url, s, e) {
     pdfDoc = pdfDoc_;
 
     document.getElementById('page_count').textContent = end - start + 1;
-
+    if (start == end) {
+      document.getElementById('paginator').classList.add('d-none');
+    } else {
+      document.getElementById('prev').classList.add('disabled');
+    }
     // Initial/first page rendering
     renderPage(pageNum);
   });
