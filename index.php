@@ -3,6 +3,7 @@
 	$issueYear = null;
 	if (isset($_GET['issue'])) $issueYear = $_GET['issue'];
 	$issue = data::getIssue($issueYear);
+	$issueYear = $issue->year;
 	$contents = data::getContents($issue->year);
 	$rand_keys = array_rand($contents, 4);
 	$featured = array(
