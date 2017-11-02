@@ -4,6 +4,7 @@
 	if (isset($_GET['issue'])) $issueYear = $_GET['issue'];
 	$issue = data::getIssue($issueYear);
 	if ($issue == null) {
+		$issueYear = null;
 		$object = "Issue";
 		include '_includes/not_found.php';
 		return;
