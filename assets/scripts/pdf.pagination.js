@@ -100,6 +100,7 @@ function getArticle(url, s, e) {
   /**
    * Asynchronously downloads PDF.
    */
+  PDFJS.disableAutoFetch = true;
   PDFJS.getDocument(url).then(function(pdfDoc_) {
     pdfDoc = pdfDoc_;
 
