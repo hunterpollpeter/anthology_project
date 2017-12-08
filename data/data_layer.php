@@ -108,8 +108,8 @@
 
 		public static function init()
 		{
-			// self::$sql = new sql("10.31.6.3", "anthologyAdmin", "admin", "anthology");
-			self::$sql = new sql("localhost", "root", "", "anthology");
+			// self::$sql = new sql("10.31.6.3", "anthologyAdmin", "admin", "anthology2");
+			self::$sql = new sql("localhost", "root", "", "anthology2");
 		}
 
 		public static function getIssue($issueYear) 
